@@ -24,7 +24,10 @@ import os
 from datetime import datetime
 
 Addon = xbmcaddon.Addon('screensaver.digitalclock')
-path = Addon.getAddonInfo('path').decode("utf-8")
+try:
+    path = Addon.getAddonInfo('path').decode("utf-8")
+except Exception:
+    path = Addon.getAddonInfo('path')
 location = xbmc.getSkinDir()
 scriptname = location + '.xml'
 Addonversion = Addon.getAddonInfo('version')
